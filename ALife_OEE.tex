@@ -19,7 +19,7 @@ $^*$Authors contributed equally}
 
 \section{Introduction}
 
-    A central goal of the field of artificial life is to build evolving systems that capture interesting dyanmics of natural systems, producing evolutionary outcomes such as sophisticated navigation behaviors, novel cooperative strategies, complex ecosystems, or major evolutationay transitions, to name but a few. Such ``open-ended'' systems are sought after for a number of reasons: 1) For artificial life researchers, the presence of dynamics that are seen in biology but not artificial life raises the possibility that there is some fundamental and as-of-yet unidentified quality that artificial life systems are missing (citation). 2) For biologists, access to systems exhibiting complex and nuanced evolutionary processes allows rapid experimentation and facilitates understanding them on a mechanistic level (citations). Lastly, insights from open-ended evolutionary systems have the potential to expand the classes of applied engineering problems that we are able to solve with evolutionary algorithms (citations). For instance, biological evolution is currently the only algorithm to have produced general intelligence; harnessing the dynamics that lead to this development could spur breakthroughs in artificial intelligence. While various artificial life systems have recreated individual dynamics -- such as the evolution of complexity, cooperation, and competition (citations) --  the overarching goal is to create a system where all of these dynamics can emerge more organically, as in the biosphere. 
+    A central goal of the field of artificial life is to build evolving systems that capture interesting dyanmics of natural systems, producing evolutionary outcomes such as sophisticated navigation behaviors, novel cooperative strategies, complex ecosystems, or major evolutationay transitions, to name but a few. Such ``open-ended'' systems are sought after for a number of reasons: 1) For artificial life researchers, the presence of dynamics that are seen in biology but not artificial life raises the possibility that there is some fundamental and as-of-yet unidentified quality that artificial life systems are missing (citation). 2) For biologists, access to systems exhibiting complex and nuanced evolutionary processes allows rapid experimentation and facilitates understanding them on a mechanistic level (citations). 3) For Evolutionary Computation researchers, insights from open-ended evolutionary systems have the potential to expand the classes of applied engineering problems that we are able to solve with evolutionary algorithms (citations). Biological evolution is the only process known to have produced general intelligence; harnessing the dynamics that lead to this development could spur breakthroughs in artificial intelligence. While various artificial life systems have recreated individual dynamics -- such as the evolution of complexity, cooperation, and competition (citations) -- these accomplishments have been in highly controlled circumstances. The overarching goal of open-ended evolution research is to create a system where all of these dynamics can emerge more organically, as in the biosphere. 
     
 Despite general agreement on open-ended evolution being an important goal in artificial life, the field has yet to come to a consensus on how to define whether systems are making progress towards achieving this goal. A number of dynamics have been proposed as being possibly necessary for open-ended evolution, most notably the continuous production of novelty (cite Stanley and maybe Banzhaf if he’s published that paper yet), the continuous increase in diversity (cite Bedau and maybe others), and the continuous increase in complexity (citations). We argue that all of these dynamics are important pieces of the open-ended evolution puzzle. In addition, we have previously suggested that there is a fourth necessary and even simpler dynamic: continuous change in the population (cite blog post).
 
@@ -48,7 +48,7 @@ In this paper, we propose to quantify the idea of open-ended evolution with a su
 \end{figure}
 
 \subsection{Measuring Only Informative Sites}
-    While a genome may have descendants in 50 generations, it may not be phenotypically different than another persistent genome in the population. To ensure we are not counting phenotypically identical genomes separately, we determine which sites in the genome contain information about the environment. In a an NK bitstring model, the only information that an organism can have about its environment is whether it is a better to have a 1 or a 0 at each site. Thus, informative sites are those for which flipping the corresponding bit would result in a fitness decrease. In calculating all of the following metrics, we first reduce the genome to its informative sites.
+    While a genome may have descendants in 50 generations, this persistent genome may not be phenotypically different than another persistent genome in the population. To ensure we are not counting phenotypically identical genomes separately, we determine which sites in the genome contain information about the environment. In a an NK bitstring model, the only information that an organism can have about its environment is whether it is a better to have a 1 or a 0 at each site. Thus, informative sites are those for which flipping the corresponding bit would result in a fitness decrease. In calculating all of the following metrics, we first reduce the genome to its informative sites.
 
 \section{Metrics}
 
@@ -94,11 +94,17 @@ The continuous production of meaningfully new genomes is necessary for what is g
 
 \begin{figure}
 \includegraphics[width=3.5in]{figs/novelty_mean_mut_rate.png}
-\caption{\textbf{Amount of novelty over time with varying mutation rate.} The novelty metric measures the number of completely new meaningful genomes that have lineages that persisted since the previous time point. As the mutation rate increases, more novelty is continuously produced, however at all mutation rates, the novelty decreases over time.}
+\caption{\textbf{Amount of novelty over time with varying mutation rate.} The novelty metric measures the number of completely new meaningful genomes that have lineages that persisted since the previous time point. As the mutation rate increases, more novelty is continuously produced, however at all mutation rates, the novelty decreases over time. Mutation rate 3 is the baseline treatment in previous graphs.}
 \label{novelty_time}
 \end{figure}
 
+We again found that the majority of treatments had a qualitatively similar trajectory over time and therefore in Figure~\ref{novelty} we show only the final novelty value.
 
+\begin{figure}
+\includegraphics[width=3.5in]{figs/noveltyboxplots.png}
+\caption{\textbf{Amount of novelty at final time point in varying environments.} }
+\label{novelty}
+\end{figure}
 
 \subsection{Complexity Metric}
     An ideal open-ended evolutionary system would likely have increasingly complex individual organisms. Therefore, we next compared our complexity metric between two of our systems. We calculated the complexity of the most complex organism of each population over time and as Figure 4 shows,
