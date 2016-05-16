@@ -1,4 +1,5 @@
 oee_data <- read.csv("~/repos/Empirical/examples/evo/oee_data.csv")
+setwd("~/repos/oee/figs")
 
 #Order treatments correctly
 oee_data$treatment <- factor(oee_data$treatment, levels = c("K_3_N_20_POP_200_MUT_3_standard", "K_10_N_20_POP_200_MUT_3_standard","K_3_N_100_POP_200_MUT_3_standard","K_3_N_20_POP_200_MUT_1_standard","K_3_N_20_POP_200_MUT_6_standard","K_3_N_20_POP_20_MUT_3_standard","K_3_N_20_POP_1000_MUT_3_standard","K_3_N_20_POP_200_MUT_3_changing_environment","K_3_N_20_POP_200_MUT_3_fitness_sharing","K_3_N_20_POP_200_MUT_3_standard_5000_updates","K_3_N_20_POP_20_MUT_1_standard_5000_updates","K_3_N_20_POP_20_MUT_3_changing_environment_5000_updates","K_0_N_20_POP_20_MUT_3_changing_environment_5000_updates","K_3_N_20_POP_20_MUT_3_standard_5000_updates","K_3_N_20_POP_20_MUT_6_standard_5000_updates","K_3_N_20_POP_1000_MUT_3_standard_5000_updates","K_3_N_20_POP_5000_MUT_3_standard_5000_updates"))
