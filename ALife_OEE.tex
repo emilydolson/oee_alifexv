@@ -30,8 +30,11 @@ In this paper, we propose to quantify the idea of open-ended evolution with a su
 \subsection{Measuring Only Persistent Lineages}
     At any given point in time, the population will contain some maladaptive genomes that recently arose via mutation. These genotypes will quickly be purged from the population via natural selection and will add noise to our metrics. To decrease this noise, we must filter out such genomes. We accomplish this by looking backwards in time to see which organisms were the progenitors of lineages that persisted for a substantial number of generations. We mark each organism with a lineage number at a given time point A, as demonstrated in Figure 1 (where color indicates lineage number). The lineage numbers are passed on to offspring throughout the time interval (50 generations in our experiments). At time point A+50, we determine which genomes from the population at A have descendants at A+50. At this point, those genomes are considered persistent; in the example in Figure 1 the green and blue lineages are considered persistent at time point A+50. We then compare the green and blue genomes from time point A to the genomes that were persistent previously, either from time point A-50 or from all previous time points, depending on the metric; in the example we would compare to the purple genome at time point A-50. This filtering leads to a delay in counting a genome in a metric until 50 generations later, but enables us to avoid an apparent increase in metrics due to drift via mutation. For example, the red, orange, and blue genomes from time point A-50 would never be considered in our metrics because their lineages do not persist to time point A.
 
-
-Figure 2: An illustrative example of how we filter genomes for persistent lineages. At time point A, the purple lineage has proven to be persistent and therefore the original genome from A-50 will be considered meaningful. Similarly, the green and blue lineages persist to time point A+50 and so the original green and blue genomes will be considered meaningful as they were at time point A.
+\begin{figure}
+\includegraphics[width=3.5in]{LineageFigure.png}
+\caption{\textbf{An illustrative example of how we filter genomes for persistent lineages.} At time point A, the purple lineage has proven to be persistent and therefore the original genome from A-50 will be considered meaningful. Similarly, the green and blue lineages persist to time point A+50 and so the original green and blue genomes will be considered meaningful as they were at time point A.}
+\label{lineages}
+\end{figure}
 
 \subsection{Measuring Only Informative Sites}
     While a genome may have descendants in 50 generations, it may not be phenotypically different than another persistent genome in the population. To ensure we are not counting phenotypically identical genomes separately, we determine which sites in the genome contain information about the environment. In a an NK bitstring model, the only information that an organism can have about its environment is whether it is a better to have a 1 or a 0 at each site. Thus, informative sites are those for which flipping the corresponding bit would result in a fitness decrease. In calculating all of the following metrics, we first reduce the genome to its informative sites.
@@ -59,6 +62,8 @@ Figure 2: An illustrative example of how we filter genomes for persistent lineag
 
 \subsection{Change and Novelty Metrics}
 For a system to exhibit open-ended evolution, it is clearly necessary for it to be changing and introducing novel genomes. Therefore, we first measured the change and novelty of our system to demonstrate what the change and novelty metrics can capture. As shown in Figure 3,
+
+
 
 \subsection{Complexity Metric}
     An ideal open-ended evolutionary system would likely have increasingly complex individual organisms. Therefore, we next compared our complexity metric between two of our systems. We calculated the complexity of the most complex organism of each population over time and as Figure 4 shows,
