@@ -113,7 +113,15 @@ We again found that the majority of treatments had a qualitatively similar traje
 These results highlight the power of the novelty metric to identify environments and populations that have the potential to be open-ended due to the high amount of new genotypes being consistently discovered. Novelty is likely necessary, but not sufficient, for open-ended evolution because if nothing new is being produced by a population, neither the complexity nor the ecological metric can be non-zero.
 
 \subsection{Complexity Metric}
-    An ideal open-ended evolutionary system would likely have increasingly complex individual organisms. Therefore, we next compared our complexity metric between different environmental conditions in our model. We calculated the complexity of the most complex organism of each population over time, as Figure~\ref{complexity} shows. We found that in our baseline treatment, there is a limit to how complex the organisms can evolve to be and therefore over time the complexity increases and then saturates. Conversely, fitness sharing leads to lower complexity because it weakens selection for climbing fitness peaks if there are a lar
+    An ideal open-ended evolutionary system would likely have increasingly complex individual organisms. Therefore, we next compared our complexity metric between different environmental conditions in our model. We calculated the complexity of the most complex organism of each population over time, as Figure~\ref{complexity_time} shows. We found that in our baseline treatment, there is a limit to how complex the organisms can evolve to be and therefore over time the complexity increases and then saturates. Conversely, fitness sharing leads to lower complexity because it weakens selection for climbing fitness peaks if there is a large amount of the population on the same fitness peak.
+
+\begin{figure}
+\includegraphics[width=3.5in]{figs/complexity_fitness_sharing.png}
+\caption{\textbf{Amount of complexity over time with fitness sharing.} The baseline treatment (red) is able to reach the top complexity allowed by the model quickly and remain at that value. When fitness sharing is introduced (blue), the population is not able to attain the top complexity value.}
+\label{complexity_time}
+\end{figure}
+
+Because of the simplicity of our system, the complexity metric stabilizes quickly in most treatment and therefore we show only the final time point value for complexity in Figure~\ref{complexity}. The baseline treatment was able to reach the maximum complexity possible for a 20-bit genome and most of the environments did not decrease in the final complexity value. When the genome length was increased to 100 bits, the populations were able to reach the new maximum complexity value of 100. However, high mutation rate, smaller population size, and fitness sharing all somewhat decreased the final complexity achieved on average. A high mutation rate decreases the final complexity because it introduces more deleterious mutations and therefore slows adaptive evolution. Smaller population
 
 \begin{figure}
 \includegraphics[width=3.5in]{figs/complexityboxplots.png}
