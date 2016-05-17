@@ -2,7 +2,7 @@
 \usepackage{natbib,alifeconf}
 \usepackage{hyperref}
 
-\title{What is necessary for open-ended evolution?}
+\title{How do you measure necessary dynamics for open-ended evolution?}
 \author{Anya E. Vostinar$^{1,2,3,*}$, Emily L. Dolson$^{1,2,3,*}$, Michael J. Wiser$^{1,3}$,\and Charles Ofria$^{1,2,3}$ \\
 \mbox{}\\
 $^1$BEACON Center for the Study of Evolution in Action  \\
@@ -21,7 +21,7 @@ $^*$Authors contributed equally}
 
     A central goal of the field of artificial life is to build evolving systems that capture interesting dynamics of natural systems, producing evolutionary outcomes such as sophisticated navigation behaviors, novel cooperative strategies, complex ecosystems, or major evolutionary transitions, to name but a few. Such ``open-ended'' systems are sought after for a number of reasons: 1) For artificial life researchers, the presence of dynamics that are seen in biology but not artificial life raises the possibility that there is some fundamental and as-of-yet unidentified quality that artificial life systems are missing (citation). 2) For biologists, access to systems exhibiting complex and nuanced evolutionary processes allows rapid experimentation and facilitates understanding them on a mechanistic level (citations). 3) For evolutionary computation researchers, insights from open-ended evolutionary systems have the potential to expand the classes of applied engineering problems that we are able to solve with evolutionary algorithms (citations). Biological evolution is the only process known to have produced general intelligence; replicating this process would provide incredible insights into our own origins, as well as allowing us to harness these dynamics to spur breakthroughs in artificial intelligence. While various artificial life systems have recreated individual dynamics -- such as the evolution of complexity, cooperation, and competition (citations) -- these accomplishments have been in highly controlled circumstances. The overarching goal of open-ended evolution research is to create a system where all of these dynamics can emerge more organically, as in the biosphere. 
     
-Despite general agreement on open-ended evolution being an important goal in artificial life, the field has yet to come to a consensus on how to define whether systems are making progress towards achieving this goal. A number of dynamics have been proposed as being possibly necessary for open-ended evolution, most notably the continuous production of novelty (cite Stanley and maybe Banzhaf if he’s published that paper yet), the continuous increase in diversity (cite Bedau and maybe others), the continuous increase in complexity (citations), and shifts in individuality such as those often associated with major transitions in evolution (cite maynard smith, ackley if he has a paper). We argue that all of these dynamics are important pieces of the open-ended evolution puzzle. In addition, we have previously suggested that there is a fifth necessary and even simpler dynamic: continuous change in the population (cite blog post).
+Despite general agreement on open-ended evolution being an important goal in artificial life, the field has yet to come to a consensus on how to define whether systems are making progress towards achieving this goal. A number of dynamics have been proposed as being possibly necessary for open-ended evolution, most notably the continuous production of novelty \citep{lehman_abandoning_2011}, the continuous increase in diversity (cite Bedau and maybe others), the continuous increase in complexity (citations), and shifts in individuality such as those often associated with major transitions in evolution (cite maynard smith, ackley if he has a paper). We argue that all of these dynamics are important pieces of the open-ended evolution puzzle. In addition, we have previously suggested that there is a fifth necessary and even simpler dynamic: continuous change in the population (cite blog post).
 
 \begin{figure}
 \includegraphics[width=3.5in]{figs/Complexity_Barriers.png}
@@ -125,25 +125,29 @@ Because of the simplicity of our system, the complexity metric stabilizes quickl
 
 \begin{figure}
 \includegraphics[width=3.5in]{figs/complexityboxplots.png}
-\caption{\textbf{Amount of complexity at final time point in varying environments.} }
+\caption{\textbf{Amount of complexity at final time point in varying environments.} Most of the treatments reach the maximum complexity allowed by the genome length (20 or 100) and cannot continue to increase. High mutation rate, smaller populations, and fitness sharing decrease the final complexity achieved by the populations on average.}
 \label{complexity}
 \end{figure}
 
-\subsection{Ecological Metric}
-Finally, an open-ended evolutionary system should not only have individually complex organisms, but a diverse population of interacting organisms. Even if a system is not evolving more complex individual organisms, it may still be exhibiting interesting dynamics because it allows for a large number of niches and therefore diverse organisms to occupy those niches. Our ecological metric captures this dimension of open-ended evolution. The ecological metric shown in Figure 5 
+These results highlight the strengths of the complexity metric because the NK model is not able to continuously increase the complexity metric over time. Once the maximum complexity allowed by the genome length is reached, no higher value is possible. It is likely that a continuously increasing complexity metric is necessary for an open-ended system, as appears to be the case with the biosphere.
+
+\subsection{Ecology Metric}
+Finally, an open-ended evolutionary system should not only have individually complex organisms, but a diverse population of interacting organisms. Even if a system is not evolving more complex individual organisms, it may still be exhibiting interesting dynamics because it allows for a large number of niches and therefore diverse organisms to occupy those niches. Our ecology metric captures this dimension of open-ended evolution. As shown in Figure~\ref{ecological_time}, if the population is large enough, the ecology metric will remain fairly stable over evolutionary time. Larger population sizes led to higher overall ecology values, and when the population size was 20 or 200, the ecology value dropped to 0, indicating there was no Shannon diversity because all organisms were the same genotype.
 
 \begin{figure}
 \includegraphics[width=3.5in]{figs/ecological_mean_ci_pop_size.png}
-\caption{\textbf{Amount of ecology over time with varying population size.}}
+\caption{\textbf{Amount of ecology over time with varying population size.} At larger population sizes, ecology (measured by Shannon diversity of meaningful genomes) is non-zero throughout evolution. At smaller population sizes, the ecology value drops to 0, indicating there is no diversity.}
 \label{ecological_time}
 \end{figure}
+
+
 \begin{figure}
 \includegraphics[width=3.5in]{figs/ecologyboxplots.png}
 \caption{\textbf{Amount of ecology at final time point in varying environments.} }
 \label{ecology}
 \end{figure}
 
-
+ In an ideal open-ended evolutionary system, we expect that the ecological metric would continuously increase over time, indicating that our NK model is not open-ended.
 
 \section{Conclusions}
 Though our simulation is fairly simple, it demonstrates that our metrics respond intuitively to the dynamics in a system. Thus, they should be able to detect systems that are theoretically capable of achieving open-ended evolution. First, it is clear that for new behaviors to evolve in a system, new genomes need to be evolving. Therefore, both the change and novelty metrics would need to be non-zero -- though they could be stable instead of increasing since both metrics measure a change. 
