@@ -83,15 +83,6 @@ Example goes here
 # A simple example {#simple_example}
 
 
-# K example {#k_example}
-
-
-# Pop size example {#pop_size_example}
-
-# Changing environments example
-
-# Fitness sharing example
-
 # Results
 
 ```{r, fig.show=FALSE,message=TRUE,results='hide', echo=FALSE, cache=TRUE}
