@@ -4,6 +4,7 @@ author: Anya Vostinar, *Emily Dolson*, Michael Wiser, and Charles Ofria
 date: OOE2 Workshop at Artificial Life XV, June 3rd, 2016
 output:
   revealjs::revealjs_presentation:
+    self_contained: true
     includes:
       in_header: header.html
       before_body: doc_prefix.html
